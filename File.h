@@ -13,6 +13,16 @@ private:
     std::string path;
 public:
     explicit File(std::string path){
+        #ifdef __APPLE__
+            if (path.front() == '\''){
+                path = path.erase(0,1);
+            }
+
+            if (path.back() == '\''){
+                path = path.erase(path.length() - 1);
+            }
+        #endif
+
         this->path = std::move(path);
         if (isExists()){
             size = checkSize();

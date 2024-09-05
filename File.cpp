@@ -21,7 +21,8 @@ bool File::startSplit(size_t maxChunkSize) {
 
     std::ifstream file(path,std::ios::binary);
     if (!file.is_open()){
-        std::cout <<"File open fail!"<<std::endl;
+        std::cerr <<"File open fail: " << path <<std::endl;
+        return false;
     }
 
     size_t chunks = fileSize/maxChunkSize + (fileSize % maxChunkSize != 0);

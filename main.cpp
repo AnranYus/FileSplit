@@ -2,6 +2,7 @@
 #include "File.h"
 
 int main() {
+    std::cout<<"Input file path"<<std::endl;
     std::string inputPath;
     std::cin>>inputPath;
     File file = File(inputPath);
