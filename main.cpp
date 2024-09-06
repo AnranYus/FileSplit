@@ -17,8 +17,12 @@ int main() {
 
     size_t splitSize;
     std::cin >> splitSize;
-    splitSize = splitSize * 1024*1024;
 
+    if (splitSize < file.size){
+        std::cout << "File don't need split." << std::endl;
+    }
+    
+    splitSize = splitSize * 1024*1024;
 
     file.startSplit(splitSize);
 

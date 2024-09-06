@@ -44,6 +44,7 @@ bool File::startSplit(size_t maxChunkSize) {
         fileSize -= readSize;
 
         output.close();
+        std::cout << "Out put file:" << fileBlock << std::endl;
     }
     delete[] buffer;
     file.close();
