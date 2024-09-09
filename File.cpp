@@ -34,6 +34,8 @@ bool File::startSplit(size_t maxChunkSize) {
 
         if (!output.is_open()){
             std::cout<< "Failed to write file block";
+            delete[] buffer;
+            file.close();
             return false;
         }
         readSize = std::min(maxChunkSize,fileSize);
