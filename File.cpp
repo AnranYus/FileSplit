@@ -54,3 +54,19 @@ bool File::startSplit(size_t maxChunkSize) {
 
     return true;
 }
+
+bool File::startFilter(const std::string& keyword) {
+    std::ifstream file(this->path);
+    std::string line;
+    std::ofstream output(this->path + "_"+keyword,std::ios::binary);
+
+    while (std::getline(file,line)){
+        if (line.find(keyword) != std::string::npos){
+            output << line<<std::endl;
+        }
+    }
+    std::cout << "Out put file:" << this->path + "_"+keyword << std::endl;
+    file.close();
+    output.close();
+    return true;
+}

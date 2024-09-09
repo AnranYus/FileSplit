@@ -32,6 +32,7 @@ public:
     bool isExists();
     unsigned checkSize();
     bool startSplit(size_t maxChunkSize);
+    bool startFilter(const std::string& keyword);
 
 };
 
